@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {MapComponent} from './map/map.component';
 import {DistributorsService} from '../services/distributors.service';
-import {DataInterface} from '../util/data.interface';
+import {DataInterface, PositionInterface} from '../util/data.interface';
 
 @Component({
   selector: 'app-main',
@@ -19,14 +19,23 @@ export class MainComponent implements OnInit {
   }
 
   onShowMap() {
-    this.distributorsService.closest({'longitude': '-99.062718', 'latitude': '19.626423'}).subscribe((response: DataInterface) => {
-      const dialogRef = this.dialog.open(MapComponent, {data: {distributors: response.Response}});
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(result);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position: PositionInterface) => {
+        this.distributorsService.closest({
+          'longitude': position.coords.longitude,
+          'latitude': position.coords.latitude
+        }).subscribe((response: DataInterface) => {
+          const dialogRef = this.dialog.open(MapComponent, {data: {distributors: response.Response}});
+          dialogRef.afterClosed().subscribe(result => {
+            console.log(result);
+          });
+        }, (error: DataInterface) => {
+          console.log(error.ErrorMessage);
+        });
       });
-    }, (error: DataInterface) => {
-      console.log(error.ErrorMessage);
-    });
+    } else {
+      console.log('Geolocation not supported');
+    }
   }
 
 }
