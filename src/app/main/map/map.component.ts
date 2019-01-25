@@ -26,8 +26,6 @@ export class MapComponent implements OnInit {
     this.longitude = this.data.longitude;
     this.markers = this.data.markers;
     this.distributors = this.data.distributors;
-    console.log(this.data.distributors);
-    console.log(this.data.markers);
   }
 
 }

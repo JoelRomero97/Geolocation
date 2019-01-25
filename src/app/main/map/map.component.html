@@ -1,11 +1,19 @@
 <h2 mat-dialog-title class="text-center">DISTRIBUIDORES MÁS CERCANOS</h2>
 <mat-dialog-content fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1.5rem">
-  <div fxLayout="column">
-    <div *ngFor="let distributor of distributors">{{distributor.Name}}</div>
+  <div fxLayout="column" fxLayoutGap="1rem">
+    <button mat-flat-button color="primary" type="button" class="text-wrap"
+            *ngFor="let distributor of distributors">
+      {{distributor.Name}}
+    </button>
   </div>
   <div fxLayout="row">
     <agm-map [latitude]="latitude" [longitude]="longitude">
-      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      <agm-marker [latitude]="latitude" [longitude]="longitude" [label]="'Tu'"></agm-marker>
+      <agm-marker *ngFor="let marker of markers"
+                  [iconUrl]=""
+                  [latitude]="marker.latitude"
+                  [longitude]="marker.longitude">
+      </agm-marker>
     </agm-map>
   </div>
 </mat-dialog-content>
