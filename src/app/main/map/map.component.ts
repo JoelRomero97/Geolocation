@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA} from '@angular/material';
 import {DistributorInterface} from '../../util/data.interface';
 
 @Component({
@@ -10,8 +10,7 @@ import {DistributorInterface} from '../../util/data.interface';
 export class MapComponent implements OnInit {
   distributors: Array<DistributorInterface>;
 
-  constructor(public dialogRef: MatDialogRef<MapComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: { distributors: Array<DistributorInterface> }) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { distributors: Array<DistributorInterface> }) {
   }
 
   ngOnInit() {
