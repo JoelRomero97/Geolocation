@@ -3,15 +3,16 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from './material/material.module';
 import {SharedModule} from './shared/shared.module';
 import {LayoutModule} from '@angular/cdk/layout';
-import { MainComponent } from './main/main.component';
+import {MainComponent} from './main/main.component';
+import {MapComponent} from './main/map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,10 @@ import { MainComponent } from './main/main.component';
     SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    MapComponent,
+  ]
 })
 export class AppModule {
 }

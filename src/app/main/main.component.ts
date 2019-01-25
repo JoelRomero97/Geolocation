@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {MapComponent} from './map/map.component';
 
 @Component({
   selector: 'app-main',
@@ -7,13 +9,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
   }
 
   ngOnInit() {
   }
 
   onShowMap() {
+    const dialogRef = this.dialog.open(MapComponent, {data: {}});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
     console.log('Mostrar mapas');
   }
 
