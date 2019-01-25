@@ -32,7 +32,14 @@ export class MainComponent implements OnInit {
             const longitude = Number(distributor.point.split(' , ')[1]);
             this.markers.push({latitude: latitude, longitude: longitude});
           }
-          const dialogRef = this.dialog.open(MapComponent, {data: {distributors: response.Response, markers: this.markers}});
+          const dialogRef = this.dialog.open(MapComponent, {
+            data: {
+              distributors: response.Response,
+              markers: this.markers,
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            }
+          });
           dialogRef.afterClosed().subscribe(result => {
             console.log(result);
           });
