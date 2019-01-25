@@ -35,3 +35,8 @@ export interface DistributorInterface {
     }
   };
 }
+
+export interface MarkerInterface {
+  latitude: number;
+  longitude: number;
+}
