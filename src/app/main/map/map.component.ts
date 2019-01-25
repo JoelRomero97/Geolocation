@@ -9,12 +9,16 @@ import {DistributorInterface} from '../../util/data.interface';
 })
 export class MapComponent implements OnInit {
   distributors: Array<DistributorInterface>;
+  latitude: number;
+  longitude: number;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: { distributors: Array<DistributorInterface> }) {
   }
 
   ngOnInit() {
     this.distributors = this.data.distributors;
+    this.latitude = Number(this.distributors[0].point.split(' , ')[0]);
+    this.longitude = Number(this.distributors[0].point.split(' , ')[1]);
     console.log(this.data.distributors);
   }
 

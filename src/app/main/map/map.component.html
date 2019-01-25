@@ -4,7 +4,7 @@
     <div *ngFor="let distributor of distributors">{{distributor.Name}}</div>
   </div>
   <div fxLayout="row">
-    <div>AQUI VA EL MAPA</div>
+    <agm-map [latitude]="latitude" [longitude]="longitude"></agm-map>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions fxLayout="row" fxLayoutAlign="end">

@@ -11,6 +11,7 @@ import {DistributorsService} from './services/distributors.service';
 import {GenericService} from './services/generic.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ConstantsUtil} from './util/constants.util';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,9 @@ import {ConstantsUtil} from './util/constants.util';
     LayoutModule,
     SharedModule,
     HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBfLV9cbKiPaoT7A_x96FbSaY6aUu6ASpE'
+    })
   ],
   providers: [
     GenericService,
