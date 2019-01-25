@@ -18,5 +18,5 @@ export interface DistributorInterface {
       CoordinateSystemId: number;
       WellKnownText: string;
     }
-  }
+  };
 }

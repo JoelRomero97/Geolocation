@@ -1,8 +1,12 @@
-<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1.5rem">
+<h2 mat-dialog-title class="text-center">DISTRIBUIDORES MÁS CERCANOS</h2>
+<mat-dialog-content fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1.5rem">
   <div fxLayout="column">
     <div *ngFor="let distributor of distributors">{{distributor.Name}}</div>
   </div>
   <div fxLayout="row">
     <div>AQUI VA EL MAPA</div>
   </div>
-</div>
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+  <button mat-button [mat-dialog-close]="false">Cerrar</button>
+</mat-dialog-actions>
