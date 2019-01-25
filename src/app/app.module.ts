@@ -7,6 +7,10 @@ import {SharedModule} from './shared/shared.module';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MainComponent} from './main/main.component';
 import {MapComponent} from './main/map/map.component';
+import {DistributorsService} from './services/distributors.service';
+import {GenericService} from './services/generic.service';
+import {HttpClientModule} from '@angular/common/http';
+import {ConstantsUtil} from './util/constants.util';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,13 @@ import {MapComponent} from './main/map/map.component';
     BrowserAnimationsModule,
     LayoutModule,
     SharedModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    GenericService,
+    DistributorsService,
+    ConstantsUtil,
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     MapComponent,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-map',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<MapComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+  }
 
   ngOnInit() {
+    console.log(this.data.distributors);
   }
 
 }
