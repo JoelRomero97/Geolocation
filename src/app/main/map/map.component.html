@@ -1,3 +1,8 @@
-<p>
-  map works!
-</p>
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1.5rem">
+  <div fxLayout="column">
+    <div *ngFor="let distributor of distributors">{{distributor.Name}}</div>
+  </div>
+  <div fxLayout="row">
+    <div>AQUI VA EL MAPA</div>
+  </div>
+</div>

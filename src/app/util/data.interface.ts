@@ -1,6 +1,6 @@
 export interface DataInterface {
   Success: boolean;
-  Response: any;
+  Response: Array<DistributorInterface>;
   ErrorMessage: Array<any>;
 }
 
