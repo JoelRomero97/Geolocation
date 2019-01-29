@@ -1,9 +1,10 @@
 <h2 mat-dialog-title class="text-center">DISTRIBUIDORES MÁS CERCANOS</h2>
 <mat-dialog-content fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1.5rem">
   <div fxLayout="column" fxLayoutGap="1rem">
-    <button mat-flat-button color="primary" type="button" class="text-wrap"
+    <button mat-flat-button type="button" class="text-wrap distributors"
             *ngFor="let distributor of distributors">
-      {{distributor.Name}}
+      <p class="distributor-name">{{distributor.Name.substring(0, 1).toUpperCase() + distributor.Name.substring(1)}}</p>
+      <p class="distributor-direction">{{distributor.Direction}}</p>
     </button>
   </div>
   <div fxLayout="row">
