@@ -1,17 +1,19 @@
 <h2 mat-dialog-title class="text-center">DISTRIBUIDORES MÁS CERCANOS</h2>
 <mat-dialog-content fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1.5rem">
   <div fxLayout="column" fxLayoutGap="1rem">
-    <button mat-flat-button type="button" class="text-wrap distributors"
-            *ngFor="let distributor of distributors">
-      <p class="distributor-name">{{distributor.Name.substring(0, 1).toUpperCase() + distributor.Name.substring(1)}}</p>
-      <p class="distributor-direction">{{distributor.Direction}}</p>
-    </button>
+    <div fxLayout="column" class="text-center distributors"
+         *ngFor="let distributor of distributors">
+        <span
+          class="distributor-name">{{distributor.Name.substring(0, 1).toUpperCase() + distributor.Name.substring(1)}}</span>
+      <span class="distributor-direction">{{distributor.Direction}}</span>
+    </div>
   </div>
   <div fxLayout="row">
     <agm-map [latitude]="latitude" [longitude]="longitude" [fitBounds]="bounds">
       <agm-marker [latitude]="latitude" [longitude]="longitude" [label]="'Tu'"></agm-marker>
       <agm-marker *ngFor="let marker of markers"
                   [latitude]="marker.latitude"
+                  [iconUrl]="{url: './assets/img/fandeli.png',scaledSize: {width: 30,height:50}}"
                   [longitude]="marker.longitude">
       </agm-marker>
     </agm-map>

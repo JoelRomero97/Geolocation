@@ -26,8 +26,10 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.latitude = this.data.latitude + 0.012644400000002776;
-    this.longitude = this.data.longitude + 0.05518370000000061;
+    this.latitude = this.data.latitude;
+    this.longitude = this.data.longitude;
+    // this.latitude = this.latitude + 0.012644400000002776;
+    // this.longitude = this.longitude + 0.05518370000000061;
     this.markers = this.data.markers;
     this.distributors = this.data.distributors;
     this.bounds.extend(new google.maps.LatLng(this.latitude, this.longitude));
