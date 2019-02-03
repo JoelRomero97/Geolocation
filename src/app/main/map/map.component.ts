@@ -11,6 +11,7 @@ declare var google: any;
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  cp: string;
   latitude: number;
   longitude: number;
   markers: Array<MarkerInterface> = [];

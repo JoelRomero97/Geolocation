@@ -46,7 +46,9 @@ export class MainComponent implements OnInit {
         }, (error: DataInterface) => {
           console.log(error.ErrorMessage);
         });
-      });
+      }, error => {
+        console.log(error);
+      }, {enableHighAccuracy: true, timeout: 3000});
     } else {
       console.log('Geolocation not supported');
     }
