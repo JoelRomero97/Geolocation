@@ -1,0 +1,33 @@
+<h2 mat-dialog-title class="text-center">DISTRIBUIDORES MÁS CERCANOS</h2>
+<mat-dialog-content fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1.5rem">
+  <div fxLayout="column" fxLayoutGap="1rem">
+    <div fxLayout="column">
+      <mat-form-field class="example-form-field">
+        <input matInput type="text" placeholder="Buscar por CP" [(ngModel)]="cp">
+        <button mat-button *ngIf="cp" matSuffix mat-icon-button aria-label="Clear" (click)="cp=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div fxLayout="column" class="text-center distributors mb-2"
+           *ngFor="let distributor of distributors">
+        <span
+          class="distributor-name">{{distributor.Name.substring(0, 1).toUpperCase() + distributor.Name.substring(1)}}</span>
+        <span class="distributor-direction">{{distributor.Direction}}</span>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row">
+    <agm-map [latitude]="latitude" [longitude]="longitude" [fitBounds]="bounds">
+      <agm-marker [latitude]="latitude" [longitude]="longitude" [label]="'Tu'"></agm-marker>
+      <agm-marker *ngFor="let marker of markers"
+                  [latitude]="marker.latitude"
+                  [iconUrl]="{url: './assets/img/fandeli.png',scaledSize: {width: 30,height:50}}"
+                  [longitude]="marker.longitude">
+      </agm-marker>
+    </agm-map>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+  <button mat-button [mat-dialog-close]="false">Cerrar</button>
+</mat-dialog-actions>

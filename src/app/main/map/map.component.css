@@ -1,0 +1,21 @@
+agm-map {
+  height: 450px;
+  width: 600px;
+}
+
+.distributors {
+  border: 1px solid #EB6D37;
+  border-radius: 0.8rem;
+  font-family: "DejaVu Sans Mono", serif;
+  padding: 0.5rem;
+}
+
+.distributor-name {
+  font-size: 0.7rem;
+  margin: 0;
+}
+
+.distributor-direction {
+  font-size: 0.5rem;
+  margin: 0;
+}
