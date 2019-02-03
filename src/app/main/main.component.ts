@@ -48,7 +48,7 @@ export class MainComponent implements OnInit {
         });
       }, error => {
         console.log(error);
-      }, {enableHighAccuracy: true, timeout: 3000});
+      }, {enableHighAccuracy: true, timeout: 5000});
     } else {
       console.log('Geolocation not supported');
     }
